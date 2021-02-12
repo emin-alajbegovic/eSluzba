@@ -4,7 +4,7 @@
 <div class="container">
 
     <div>
-        <h4 class="bg-success text-white p-3">Podaci o studentima</h4>
+        <h4 class="bg-info text-black p-3">Podaci o studentima za fakultet</h4>
     </div>
 
     <div class="my-2">
@@ -14,12 +14,12 @@
                 <input class="form-control" type="text" name="pretraga" value="@Model.pretraga" />
                 <input type="submit" value="Traži" class="btn btn-success" />
             </div>
-            <small>Rezultat:<span class="text-info"> @Model.Studenti.Count()</span> </small>
+            <small>Broj rezultata:<span class="text-info"> @Model.Studenti.Count()</span> </small>
         </form>
     </div>
 
     <table class="table table-bordered">
-        <thead class="thead-dark">
+        <thead class="thead-light">
             <tr>
                 <th>Ime i prezime</th>
                 <th>Email</th>
@@ -37,11 +37,11 @@
                     <td>@item.Email</td>
                     <td>@item.GodinaStudija</td>
                     <td>
-                        <a asp-controller="Student" asp-route-id="@item.Id" asp-action="AddEdit" class="btn btn-secondary">Uredi</a>
-                        <a class="btn btn-danger text-white" asp-controller="Student" asp-route-id="@item.Id" asp-action="Delete">Obriši</a>
+                        <a class="btn btn-secondary text-white" asp-controller="Student" asp-route-id="@item.Id" asp-action="Uspjeh">Položeni predmeti</a>
                     </td>
                     <td>
-                        <a class="btn btn-secondary text-white" asp-controller="Student" asp-route-id="@item.Id" asp-action="Uspjeh">Položeni predmeti</a>
+                        <a asp-controller="Student" asp-route-id="@item.Id" asp-action="AddEdit" class="btn btn-warning">Uredi</a>
+                        <a class="btn btn-danger text-white" asp-controller="Student" asp-route-id="@item.Id" asp-action="Delete">Obriši</a>
                     </td>
                 </tr>
             }
@@ -49,7 +49,7 @@
     </table>
 
     <div>
-        <a type="button" class="btn btn-success" asp-action="AddEdit">Dodaj studenta</a>
+        <a type="button" class="btn btn-info" asp-action="AddEdit">Dodaj studenta</a>
     </div>
 </div>
 
