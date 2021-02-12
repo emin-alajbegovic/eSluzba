@@ -9,7 +9,7 @@ using StudentskaSluzba.Models;
 
 namespace StudentskaSluzba.Controllers
 {
-    [Autorizacija(referent:true, student:false)]
+    [Autorizacija(referent: true, student: false)]
     public class PredmetController : Controller
     {
         private readonly ApplicationDbContext _db;
