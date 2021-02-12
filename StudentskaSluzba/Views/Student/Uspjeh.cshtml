@@ -1,0 +1,43 @@
+﻿@model StudentskaSluzba.Models.Student
+
+<div>
+    <div class="container">
+        <h4>Uspjeh - položeni predmeti</h4>
+
+        <div class="card p-3 my-2">
+            <h5>@Model.Ime @Model.Prezime</h5>
+        </div>
+
+        <div class="my-2">
+            <a class="btn btn-success text-white" asp-route-id="@Model.Id" asp-action="AddUspjeh">Dodaj položeni predmet</a>
+            <a class="btn btn-secondary text-white" asp-action="Index">Nazad</a>
+        </div>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Predmet</th>
+                    <th>Datum Polaganja</th>
+                    <th>Ocjena</th>
+                    <th>Opcije</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var uspjeh in Model.Uspjeh)
+                    {
+                        <tr>
+                            <td>@uspjeh.Predmet.Naziv</td>
+                            <td>@uspjeh.DatumPolaganja</td>
+                            <td>@uspjeh.Ocjena</td>
+                            <td>
+                                <a class="btn btn-secondary text-white" asp-route-id="@uspjeh.Id" asp-action="EditUspjeh">Edit</a>
+                                <a class="btn btn-danger text-white" asp-controller="Student" asp-route-id="@uspjeh.Id" asp-action="DeleteUspjeh">Obriši</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

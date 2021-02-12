@@ -1,0 +1,50 @@
+﻿@model StudentskaSluzba.Models.Predmet
+@{
+    ViewData["Title"] = "Index";
+    List<Predmet> predmeti = (List<Predmet>)ViewData["predmeti"];
+    var pretraga = ViewData["pretraga"];
+    var error = TempData["error_poruka"];
+}
+
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label>Pretraži predmete</label>
+            <div class="d-flex">
+                <input class="form-control" type="text" name="pretraga" value="@pretraga" />
+                <input class="btn btn-success" type="submit" value="Traži" />
+            </div>
+            <small>Rezultat: <span>@predmeti.Count()</span></small>
+        </div>
+    </form>
+
+    <div class="py-2 my-2">
+        <a class="btn btn-success text-white" asp-controller="Predmet" asp-action="AddEditPredmet">Dodaj Predmet</a>
+    </div>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Naziv)</th>
+                <th class="text-center">@Html.DisplayNameFor(model => model.ETCS)</th>
+                <th>Opcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var predmet in predmeti)
+                {
+                    <tr>
+                        <td>@predmet.Naziv</td>
+                        <td class="text-center">@predmet.ETCS</td>
+                        <td>
+                            <a class="btn btn-secondary text-white" asp-controller="Predmet" asp-route-id="@predmet.Id" asp-action="AddEditPredmet">Uredi</a>
+                            <a class="btn btn-danger text-white" asp-controller="Predmet" asp-route-id="@predmet.Id" asp-action="Delete">Obriši</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

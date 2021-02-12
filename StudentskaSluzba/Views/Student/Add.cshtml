@@ -1,0 +1,72 @@
+﻿@model StudentskaSluzba.Models.Student
+
+@{
+    ViewData["Title"] = "Add";
+    List<Grad> gradovi = (List<Grad>)ViewData["gradkey"];
+    List<GodinaStudija> godineStudija = (List<GodinaStudija>)ViewData["godinekey"];
+}
+
+<div>
+    <div class="container">
+        <h4 class="bg-success text-white p-3">Dodaj studenta</h4>
+        <form class="p-2" method="post" asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ime"></label>
+                <input required oninvalid="this.setCustomValidity('Unesite ime')" oninput="setCustomValidity('')"
+                       asp-for="Ime" type="text" class="form-control" id="" placeholder="Ime">
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Prezime</label>
+                <input asp-for="Prezime" type="text" class="form-control" id="" placeholder="Prezime">
+                <span asp-validation-for="Prezime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Datum rođenja</label>
+                <input asp-for="DatumRodjenja" type="date" class="form-control" />
+                <span asp-validation-for="DatumRodjenja" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Adresa</label>
+                <input asp-for="AdresaStanovanja" type="text" class="form-control" id="" placeholder="Adresa">
+                <span asp-validation-for="AdresaStanovanja" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="">JMBG</label>
+                <input asp-for="JMBG" type="text" class="form-control" id="" placeholder="JMBG">
+                <span asp-validation-for="JMBG" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Unesite email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Grad"></label>
+                <select asp-for="GradId" asp-items="@(new SelectList(gradovi,"Id","Naziv"))" class="form-control">
+                    <option selected hidden disabled>Odaberite opcinu stanovanja</option>
+                </select>
+                <span asp-validation-for="GradId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Godina studija</label>
+                <select asp-for="GodinaStudijaId" asp-items="@(new SelectList(godineStudija,"Id","Godina"))" class="form-control">
+                    <option>Odaberite godinu studija</option>
+                </select>
+                <span asp-validation-for="GodinaStudijaId" class="text-danger"></span>
+            </div>
+
+            <input type="submit" class="btn btn-success" value="Dodaj studenta" />
+            <a asp-action="Index" class="btn btn-success">Nazad</a>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,59 @@
+﻿@using StudentskaSluzba.ViewModels
+@model StudentiPrikazVM
+
+<div class="container">
+
+    <div>
+        <h4 class="bg-success text-white p-3">Podaci o studentima</h4>
+    </div>
+
+    <div class="my-2">
+        <form>
+            <label>Pretraga</label>
+            <div class="d-flex">
+                <input class="form-control" type="text" name="pretraga" value="@Model.pretraga" />
+                <input type="submit" value="Traži" class="btn btn-success" />
+            </div>
+            <small>Rezultat:<span class="text-info"> @Model.Studenti.Count()</span> </small>
+        </form>
+    </div>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Ime i prezime</th>
+                <th>Email</th>
+                <th>Godina studija</th>
+                <th>Opcije</th>
+                <th>Položeni predmeti</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (StudentiPrikazVM.Row item in Model.Studenti)
+            {
+                <tr>
+                    <td>@item.Ime @item.Prezime</td>
+                    <td>@item.Email</td>
+                    <td>@item.GodinaStudija</td>
+                    <td>
+                        <a asp-controller="Student" asp-route-id="@item.Id" asp-action="AddEdit" class="btn btn-secondary">Uredi</a>
+                        <a class="btn btn-danger text-white" asp-controller="Student" asp-route-id="@item.Id" asp-action="Delete">Obriši</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-secondary text-white" asp-controller="Student" asp-route-id="@item.Id" asp-action="Uspjeh">Položeni predmeti</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <a type="button" class="btn btn-success" asp-action="AddEdit">Dodaj studenta</a>
+    </div>
+</div>
+
+
+<script>
+
+</script>

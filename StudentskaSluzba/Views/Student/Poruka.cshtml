@@ -1,0 +1,8 @@
+﻿@{
+    TempData.Keep("poruka");
+}
+
+<div class="container">
+    <h5 class="text-secondary">@TempData["poruka"]!</h5>
+    <a asp-action="Index" class="btn btn-secondary text-white">Nazad</a>
+</div>

@@ -1,0 +1,26 @@
+﻿@model StudentskaSluzba.Models.Predmet
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <div>
+        <h4>Uredi predmet</h4>
+        <small>@Model.Naziv</small>
+    </div>
+    <br />
+    <form method="post" asp-action="Edit">
+        <div class="form-group">
+            <label>Naziv</label>
+            <input required asp-for="Naziv" type="text" class="form-control" value="@Model.Naziv" />
+        </div>
+
+        <div class="form-group">
+            <label>ECTS</label>
+            <input required asp-for="ETCS" type="text" class="form-control" value="@Model.ETCS" />
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Spasi promjene" />
+        <a asp-controller="Predmet" asp-action="Index" class="btn btn-secondary text-white">Nazad</a>
+    </form>
+</div>

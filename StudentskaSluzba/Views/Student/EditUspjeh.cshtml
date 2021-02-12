@@ -1,0 +1,50 @@
+﻿@model StudentskaSluzba.ViewModels.StudentUspjehVM
+
+
+<div class="container">
+    <form method="post" asp-action="EditUspjeh">
+    <div asp-validation-summary="ModelOnly"></div>
+        <input asp-for="StudentId" hidden />
+
+        <div class="form-group">
+            <label asp-for="PredmetId"></label>
+            <select asp-for="PredmetId" asp-items="Model.Predmeti" class="form-control">
+            </select>
+            <span asp-validation-for="PredmetId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DatumPolaganja"></label>
+            <input asp-for="DatumPolaganja" type="date" class="form-control" />
+            <span asp-validation-for="DatumPolaganja" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <select name="Ocjena" class="form-control">
+                @{
+                    if (Model.Ocjena == 0)
+                    {
+                        <option selected disabled hidden>Unesite ocjenu: </option>
+                    }
+                    foreach (var item in Model.Ocjene)
+                    {
+                        if (item == Model.Ocjena)
+                        {
+                            <option value="@item" selected>@item</option>
+                        }
+                        else
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    }
+                }
+            </select>
+            <span asp-validation-for="Ocjena" class="text-danger"></span>
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Spasi promjene" />
+        <a asp-route-id="@Model.StudentId" asp-action="Uspjeh" class="btn btn-success">Nazad</a>
+
+    </form>
+</div>
+

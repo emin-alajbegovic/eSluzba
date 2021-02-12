@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "PredmetPoruka";
+    string poruka = (string)TempData["poruka_p"];
+
+}
+
+<div class="container">
+    <h2 class="text-black">@poruka</h2>
+    <a asp-controller="Predmet" asp-action="Index" class="btn btn-success text-white">Nazad</a>
+</div>
+

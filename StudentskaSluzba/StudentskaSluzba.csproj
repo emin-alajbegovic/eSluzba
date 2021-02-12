@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201014151758_editgodinastudijaforeignkey.cs" />
+    <Compile Remove="Migrations\20201014151758_editgodinastudijaforeignkey.Designer.cs" />
+    <Compile Remove="Migrations\20201014170146_edit.cs" />
+    <Compile Remove="Migrations\20201014170146_edit.Designer.cs" />
+    <Compile Remove="Migrations\20201017092234_test.cs" />
+    <Compile Remove="Migrations\20201017092234_test.Designer.cs" />
+    <Compile Remove="Migrations\20201021204453_new123.cs" />
+    <Compile Remove="Migrations\20201021204453_new123.Designer.cs" />
+    <Compile Remove="Migrations\20201021204649_new123.cs" />
+    <Compile Remove="Migrations\20201021204649_new123.Designer.cs" />
+    <Compile Remove="Migrations\20201027125924_korisnickiNalog.cs" />
+    <Compile Remove="Migrations\20201027125924_korisnickiNalog.Designer.cs" />
+    <Compile Remove="Migrations\20201027130300_korisnickiNalogEdit.cs" />
+    <Compile Remove="Migrations\20201027130300_korisnickiNalogEdit.Designer.cs" />
+    <Compile Remove="Migrations\20201031122909_testiranje1.cs" />
+    <Compile Remove="Migrations\20201031122909_testiranje1.Designer.cs" />
+    <Compile Remove="Migrations\20201031123404_testiranje2.cs" />
+    <Compile Remove="Migrations\20201031130617_korisnickiNalog12.cs" />
+    <Compile Remove="Migrations\20201031130617_korisnickiNalog12.Designer.cs" />
+    <Compile Remove="Migrations\20201031131055_n.cs" />
+    <Compile Remove="Migrations\20201031131055_n.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="jQuery" Version="3.5.1" />
+    <PackageReference Include="jQuery.UI.Combined" Version="1.12.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,53 @@
+﻿@model StudentskaSluzba.Models.StudentiPredmeti
+@{
+    ViewData["Title"] = "AddUspjeh";
+    var predmeti = (List<Predmet>)ViewData["predmeti"];
+    int[] ocjene = { 6, 7, 8, 9, 10 };
+    int id = (int)ViewData["id"];
+}
+
+<div class="container">
+    <form method="post" asp-action="AddUspjeh">
+        <div class="form-group">
+            <label>Predmet</label>
+            <select name="PredmetId" class="form-control">
+                <option disabled selected>Odaberite predmet</option>
+                @{
+                    foreach (var predmet in predmeti)
+                    {
+                        <option value="@predmet.Id">
+                            @predmet.Naziv
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div>
+            <label>Datum polaganja</label>
+            @Html.EditorFor(model => model.DatumPolaganja, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Ocjene</label>
+            <select class="form-control" name="Ocjena">
+                <option disabled selected hidden>Odaberite ocjenu</option>
+                @{
+                    foreach (var ocjena in ocjene)
+                    {
+                        <option value="@ocjena" asp-for="Ocjena">
+                            @ocjena
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+
+        <input type="text" asp-for="StudentId" value="@id" hidden />
+
+        <input type="submit" class="btn btn-success" value="Dodaj uspjeh" />
+        <a asp-controller="Student" asp-route-id="@id" asp-action="Uspjeh" class="btn btn-success">Nazad</a>
+
+    </form>
+</div>
+
